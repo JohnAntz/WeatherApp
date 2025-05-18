@@ -1,9 +1,9 @@
-import { url } from "./index.js";
-export async function fetchData() {
+export async function fetchData(city) {
   try {
-    const weatherData = await fetch(url);
-    const data = await weatherData.json();
-    console.log(data);
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=WUDPHF377CA9R6KWMDW47Y6CE&contentType=json`;
+    const data = await fetch(url);
+    const weatherData = await data.json();
+    console.log(weatherData.currentConditions);
   } catch (error) {
     console.log(error);
   }

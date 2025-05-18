@@ -1,5 +1,18 @@
 import { fetchData } from "./fetch.js";
-export const url =
-  "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/36.1303%2C-5.4560?key=WUDPHF377CA9R6KWMDW47Y6CE&contentType=json";
 
-document.querySelector(".search-button").addEventListener("click", fetchData);
+const form = document.getElementById("search-form");
+const input = document.getElementById("search-input");
+
+function handleInput() {
+  const city = input.value.trim();
+  if (city) {
+    fetchData(city);
+  } else {
+    console.log("Specify your city please.");
+  }
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  handleInput();
+});

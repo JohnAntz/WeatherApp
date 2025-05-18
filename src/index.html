@@ -10,14 +10,19 @@
   <body>
     <header>Weather App</header>
     <main>
-      <div class="search-bar">
-        <input
-          type="text"
-          placeholder="Please enter a location"
-          name="searchbar" />
-        <button class="search-button">Search</button>
+      <div id="search-bar">
+        <form action="submit" id="search-form">
+          <input
+            type="text"
+            placeholder="Please enter a location"
+            name="searchbar"
+            id="search-input" />
+          <button class="search-button" type="submit" id="search-button">
+            Search
+          </button>
+        </form>
       </div>
-      <div class="data-display"></div>
+      <div id="data-display"></div>
     </main>
   </body>
 </html>
