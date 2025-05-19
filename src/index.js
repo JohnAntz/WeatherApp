@@ -16,8 +16,23 @@ async function handleInput() {
     display.textContent = "Could not fetch weather data";
   }
 }
+function nextDay() {
+  if (dayIndex < 14) {
+    dayIndex++;
+    handleInput();
+  }
+}
+function previousDay() {
+  if (dayIndex > 0) {
+    dayIndex--;
+    handleInput();
+  }
+}
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   handleInput();
 });
+
+document.getElementById("next-day").addEventListener("click", nextDay);
+document.getElementById("previous-day").addEventListener("click", previousDay);

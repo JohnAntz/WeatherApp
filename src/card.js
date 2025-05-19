@@ -4,21 +4,20 @@ export function cardConstructor(weather, dayIndex) {
 
   const day = weather.days[dayIndex];
 
-  const fields = {
-    Temperature: day.temp,
-    Conditions: day.conditions,
-    Date: day.datetime,
-    Humidity: day.humidity,
-    Icon: day.icon,
-    Sunrise: day.sunrise,
-    Sunset: day.sunset,
-    WindSpeed: day.windspeed,
-  };
+  const elements = [
+    { label: "Date", value: `${day.datetime}` },
+    { label: "Conditions", value: `${day.conditions}` },
+    { label: "Temperature", value: `${day.temp} ºC` },
+    { label: "Humidity", value: `${day.humidity} %` },
+    { label: "Wind Speed", value: `${day.windspeed} km/h` },
+    { label: "Sunrise", value: `${day.sunrise}` },
+    { label: "Sunset", value: `${day.sunset}` },
+  ];
 
-  for (const [label, value] of Object.entries(fields)) {
+  for (const item of elements) {
     const info = document.createElement("div");
     info.classList.add("info-card");
-    info.textContent = `${label}: ${value}`;
+    info.textContent = `${item.label}: ${item.value}`;
     display.appendChild(info);
   }
 }

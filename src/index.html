@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="index.js" defer></script>
-
     <title>John's weather app</title>
   </head>
   <body>
@@ -16,10 +15,13 @@
             type="text"
             placeholder="Please enter a location"
             name="searchbar"
-            id="search-input" />
+            id="search-input"
+            required />
           <button class="search-button" type="submit" id="search-button">
             Search
           </button>
+          <button class="change-button" id="previous-day"><</button>
+          <button class="change-button" id="next-day">></button>
         </form>
       </div>
       <div id="data-display"></div>
