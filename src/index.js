@@ -1,14 +1,19 @@
+import "./styles.css";
 import { fetchData } from "./fetch.js";
+import { cardConstructor } from "./card.js";
 
 const form = document.getElementById("search-form");
 const input = document.getElementById("search-input");
 
-function handleInput() {
+let dayIndex = 0;
+
+async function handleInput() {
   const city = input.value.trim();
   if (city) {
-    fetchData(city);
+    const weather = await fetchData(city);
+    cardConstructor(weather, dayIndex);
   } else {
-    console.log("Specify your city please.");
+    display.textContent = "Could not fetch weather data";
   }
 }
 
